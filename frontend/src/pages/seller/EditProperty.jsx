@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 import { editPropertyStyles as s } from '../../assets/dummyStyles';
 
 const EditProperty = () => {
-    // ✅ THIS IS CRITICAL - Must be here!
+   
     const { propertyId } = useParams();
     const navigate = useNavigate();
     const { token } = useAuth();
@@ -26,7 +26,7 @@ const EditProperty = () => {
         city: '',
     });
 
-    // Fetch property data on mount
+    
     useEffect(() => {
         if (!propertyId) {
             console.error('No propertyId found!');
@@ -56,7 +56,7 @@ const EditProperty = () => {
         }
     };
 
-    // Handle form input change
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({

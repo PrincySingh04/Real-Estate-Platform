@@ -13,7 +13,7 @@ import {
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../components/common/Navbar';
-import PropertyCard from '../../components/common/PropertyCard'; // TODO: confirm this matches your actual PropertyCard file path
+import PropertyCard from '../../components/common/PropertyCard'; 
 import API_URL from '../../config';
 
 const Properties = () => {

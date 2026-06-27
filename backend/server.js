@@ -9,7 +9,7 @@ import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.routes.js";
 import propertyRouter from "./routes/properties.route.js";
 import inquiryRouter from "./routes/inquiry.route.js";
-// ✅ FIX 1: removed wrong import of wishlist MODEL — not needed in server.js
+
 import wishlistRouter from "./routes/wishlist.route.js";
 import contactRouter from "./routes/contacts.route.js";
 import adminRouter from './routes/admin.route.js';
@@ -28,7 +28,7 @@ app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
         if (allowedOrigins.includes(origin)) return callback(null, true);
-        // Allow any preview deployment URL of this same Vercel project
+        
         if (/^https:\/\/real-estate-platform-frontend-.*\.vercel\.app$/.test(origin)) {
             return callback(null, true);
         }
@@ -62,7 +62,7 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-    console.log("User connected:", socket.id); // ✅ FIX 2: added connection log
+    console.log("User connected:", socket.id); 
 
     socket.on("joinChat", (chatId) => {
         socket.join(chatId);
@@ -72,8 +72,8 @@ io.on("connection", (socket) => {
         io.to(data.chatId).emit("receivedMessage", data);
     });
 
-    socket.on("disconnect", () => { // ✅ FIX 3: was "disconnected" — correct event is "disconnect"
-        console.log("User disconnected:", socket.id); // ✅ FIX 4: empty handler, added log
+    socket.on("disconnect", () => { 
+        console.log("User disconnected:", socket.id); 
     });
 });
 

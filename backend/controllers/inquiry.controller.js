@@ -43,7 +43,7 @@ export const getSellerInquiries = async(req, res) => {
     })
     .populate("buyer", "name email phone")
     .populate("property", "title price images city")
-    .sort({ createdAt: -1 });  // ✅ "createAt" → "createdAt"
+    .sort({ createdAt: -1 });  
 
     res.json({
         success: true,
@@ -62,7 +62,7 @@ export const getSellerInquiries = async(req, res) => {
 // mark inquiry as read
 export const markAsRead = async (req, res) => {
     try {
-        const inquiry = await Inquiry.findById(req.params.id); // ✅ "fundById" → "findById"
+        const inquiry = await Inquiry.findById(req.params.id); 
         
         if(!inquiry){
             return res.status(404).json({
@@ -71,7 +71,7 @@ export const markAsRead = async (req, res) => {
             });
         }
 
-        inquiry.isRead = true;  // ✅ added missing logic
+        inquiry.isRead = true;  
         await inquiry.save();
 
         res.json({

@@ -76,8 +76,7 @@ const AdminInquiries = () => {
                                 </div>
                             </div>
 
-                            {/* Details Grid */}
-                            {/* Details Grid */}
+                           
 <div className={s.detailsGrid}>
     <div className={s.detailCard}>
         <div className={s.detailLabel}>Buyer Details</div>

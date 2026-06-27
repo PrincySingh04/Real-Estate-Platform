@@ -32,7 +32,7 @@ export const ChatProvider = ({ children }) => {
                     partnerAvatar: partner?.profilePic,
                     lastMessage: lastMsg?.text || '',
                     property: chat.property,
-                    // ✅ Store both buyer and seller for proper identification
+                    
                     buyer: chat.buyer,
                     seller: chat.seller,
                     isBuyer: isBuyer,
@@ -84,7 +84,7 @@ export const ChatProvider = ({ children }) => {
                 partnerAvatar: partner?.profilePic,
                 property: chat.property,
                 propertyTitle: property?.title,
-                // ✅ Store both buyer and seller for proper identification
+            
                 buyer: chat.buyer,
                 seller: chat.seller,
                 isBuyer: isBuyer,

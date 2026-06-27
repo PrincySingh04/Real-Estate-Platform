@@ -27,7 +27,7 @@ export const createContact = async (req, res) => {
         try {
             await sendEmail({
                 email: adminEmail,
-                subject: `New Contact Message from ${name}`, // ✅ fixed typo
+                subject: `New Contact Message from ${name}`, 
                 message: adminMessage
             });
         } catch (emailError) {
@@ -40,16 +40,16 @@ export const createContact = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("contact error", error); // ✅ fixed err → error
+        console.error("contact error", error); 
         res.status(500).json({
             success: false,
-            message: error.message || "failed to send message" // ✅ fixed
+            message: error.message || "failed to send message" 
         });
     }
 };
 
 // to get all contacts (admin)
-export const getAllContacts = async (req, res) => { // ✅ proper async function
+export const getAllContacts = async (req, res) => { 
     try {
         const contacts = await Contact.find().sort({ createdAt: -1 });
         res.status(200).json({

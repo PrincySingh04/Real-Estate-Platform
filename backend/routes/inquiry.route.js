@@ -1,15 +1,15 @@
 import express from "express";
-import { protect, authorize } from "../middleware/auth.middleware.js"; // ✅ added protect + .js
+import { protect, authorize } from "../middleware/auth.middleware.js"; 
 import { 
     sendInquiry, 
     getSellerInquiries, 
     markAsRead 
-} from "../controllers/inquiry.controller.js"; // ✅ added all functions + .js
+} from "../controllers/inquiry.controller.js"; 
 
 const inquiryRouter = express.Router();
 
 inquiryRouter.post("/", protect, authorize("buyer"), sendInquiry);
-inquiryRouter.get("/seller", protect, authorize("seller"), getSellerInquiries); // ✅ fixed typos
-inquiryRouter.patch("/:id/read", protect, markAsRead); // ✅ fixed route + function name
+inquiryRouter.get("/seller", protect, authorize("seller"), getSellerInquiries); 
+inquiryRouter.patch("/:id/read", protect, markAsRead); 
 
 export default inquiryRouter;

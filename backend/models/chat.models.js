@@ -36,10 +36,10 @@ const chatSchema = new mongoose.Schema({
         ref: "User",
         required: true
     },
-    messages: [messageSchema]  // ✅ message → messages
+    messages: [messageSchema]  
 }, {
-    timestamps: true  // ✅ timestamp → timestamps
+    timestamps: true
 });
 
-const Chat = mongoose.model("Chat", chatSchema);  // ✅ "chat" → "Chat"
+const Chat = mongoose.model("Chat", chatSchema);  
 export default Chat;

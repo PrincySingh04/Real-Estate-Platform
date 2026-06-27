@@ -136,8 +136,7 @@ const Wishlist = () => {
                         {/* Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {wishlistItems.map((item) => {
-                                // item structure: { _id, user, property: {...}, timestamps }
-                                // We need to pass property object to PropertyCard
+                                
                                 const property = item.property;
 
                                 return (
