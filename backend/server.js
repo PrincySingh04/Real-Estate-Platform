@@ -21,18 +21,20 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 const allowedOrigins = [
-    "https://real-estate-platform-frontend-mu.vercel.app/",
-].filter(Boolean);
+    "https://real-estate-platform-frontend-mu.vercel.app",
+];
 
 app.use(cors({
-    origin: function(origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) return callback(null, true);
+        // Allow any preview deployment URL of this same Vercel project
+        if (/^https:\/\/real-estate-platform-frontend-.*\.vercel\.app$/.test(origin)) {
+            return callback(null, true);
         }
+        callback(new Error("Not allowed by CORS"));
     },
-    credentials: true
+    credentials: true,
 }));
 app.use(express.json());
 
